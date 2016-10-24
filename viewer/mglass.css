@@ -1,0 +1,22 @@
+@CHARSET "UTF-8";
+
+.mglass_wrapper {
+        cursor: url(blank.cur),default;
+}
+.mglass_picture_box {
+        zoom: 1.0;
+        z-index: 1;
+}
+.mglass_viewer {
+        position: absolute;
+        visibility: hidden;
+        width: 150px;
+        height: 150px;
+        z-index: 2;
+        overflow: hidden;
+
+        -moz-border-radius: 75px;
+        -webkit-border-radius: 75px;
+        -khtml-border-radius: 75px;
+        border-radius: 75px;
+}
