@@ -76,7 +76,7 @@ var submit = function(e) {
     var methods = getParam('methods');
     if (this.id == 'left-is-better') choice = methods[0];
     if (this.id == 'right-is-better') choice = methods[1];
-
+//  https://www.mturk.com/mturk/externalSubmit
     var form = createForm('https://workersandbox.mturk.com/mturk/externalSubmit', {
         assignmentId: assignmentId,
         choice: choice,
@@ -93,8 +93,10 @@ $(document).ready(function() {
     var methods = getParam('methods');
     $('#image').append(pairImages(path, ['im', 'trimap']));
     for (var i = 0; i < 4; i++) {
+	if (i==0 || i==3) {
         var methods_n = [methods[0]+'_'+i, methods[1]+'_'+i];
         $('#images').append(pairImages(path, methods_n));
+    }
     }
     $('.submit-button').click(submit);
 });

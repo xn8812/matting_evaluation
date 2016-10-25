@@ -31,8 +31,11 @@ var createimg = (function() {
 
 var createForm = function(url, attrs) {
     var form = $('<form/>', {
-        action: url
+        action: url,
+	style: 'display: none'
     });
+    $('body').append(form);
+    form.append($('<input type="submit"/>'));
     for (var attr in attrs) {
         form.append($('<input/>', {
             type: 'text',
