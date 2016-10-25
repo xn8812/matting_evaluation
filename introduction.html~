@@ -71,12 +71,12 @@
 
 <div id="images">
     <a >
-        <div id="container"><img src="intro_pics/ours_3.png" alt="Image" style="height:500px;" border="2"></div>
+        <img src="intro_pics/ours_3.png" alt="Image" style="height:500px;" border="2">
         <div class="caption"><b><font size="4">Results of method 1</font></b></div>
     </a>
 
     <a >
-    <div id="container"><img src="intro_pics/knn_3.png" alt="Image" style="height:500px;" border="2"></div>
+    <img src="intro_pics/knn_3.png" alt="Image" style="height:500px;" border="2">
         <div class="caption"><b><font size="4">Results of method 2</font></b></div>
     </a>
 </div>

@@ -64,7 +64,7 @@
         <div style="display: inline-block">
             <font color="blue" size="6">Welcome to the image matting evaluation page!</font>
         </div>
-	<div> <a class="pure-button intro" href="introduction.html">Introduction <br> (Read me first!)</a> </div>
+	<div> <a class="pure-button intro" href="introduction.html">Introduction <br> (click me first!)</a> </div>
     </center>
     <hr>
     <div class="pure-g content">
