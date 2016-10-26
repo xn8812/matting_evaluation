@@ -39,6 +39,7 @@ var createsingleimg = (function() {
         return $('<img></img>')
             .addClass('pure-u-1-1 img')
             .attr('id', 'img' + counter)
+	    .attr('style', 'height:500px')
             .attr('src', path + img + '.png');
     };
 }());
