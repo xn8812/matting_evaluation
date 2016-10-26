@@ -108,7 +108,8 @@ var submit = function(e) {
     if (this.id == 'left-is-better') choice = methods[0];
     if (this.id == 'right-is-better') choice = methods[1];
 //  https://www.mturk.com/mturk/externalSubmit
-    var form = createForm('https://workersandbox.mturk.com/mturk/externalSubmit', {
+// https://workersandbox.mturk.com/mturk/externalSubmit
+    var form = createForm('https://www.mturk.com/mturk/externalSubmit', {
         assignmentId: assignmentId,
         choice: choice,
         userchoice: this.id,
