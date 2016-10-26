@@ -38,7 +38,7 @@ var createsingleimg = (function() {
         counter++;
         return $('<img></img>')
             .addClass('pure-u-1-1 img')
-            .attr('id', 'img' + counter)
+            .attr('id', 'simg' + counter)
 	    .attr('style', 'height:500px')
             .attr('src', path + img + '.png');
     };
