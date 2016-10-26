@@ -9,7 +9,7 @@
     <style type="text/css">
 	#images{
 	    text-align:center;
-	    margin:10px auto;
+	    margin:30px auto;
 	}
 	#images a{
 	    margin:0px 20px;
@@ -29,70 +29,55 @@
 
 <body>
 
-<div style="display: inline-block">
-    <font color="black" size="6">What is Image Matting?</font>
-</div>
+<center>
+        <div style="display: inline-block">
+            <font color="blue" size="6">Comparing methods of extracting objects from images</font>
+        </div>
+</center>
 <div>
-    <font size="4"><p>Matting refers to the problem of precise extraction of foreground object in images. It is one of the key techniques in many image editing and film production applications.</p></font>
+    <font size="4"><p>Extracting an object from an image is an important task for many photographers and artists.   As shown below, the person in the left image was separated from the background as shown in the right image.</p></font>
 
-    <font size="4"><p>There are two inputs for a matting algorithm:</p></font>
 <div id="images">
     <a >
         <img src="intro_pics/im.png" alt="Image" style="height:500px;">
-        <div class="caption"><b><font size="4">Input 1: Image</font></b></div>
+        <div class="caption"><b><font size="4">Image</font></b></div>
     </a>
 
     <a >
-    <img src="intro_pics/trimap.png" alt="Image" style="height:500px;">
-        <div class="caption"><b><font size="4">Input 2: Trimap</font></b></div>
+    <div id="container"><img src="intro_pics/ours_3.png" alt="Image" style="height:500px;" border="2"></div>
+        <div class="caption"><b><font size="4">Result</font></b></div>
     </a>
 </div>
-    <font size="4"><p>The first input is a RGB image. The second input is called Trimap. A trimap contains three regions: <b>Known Foreground</b>, <b>Known Background</b> and <b>Unknown</b> regions.</p></font>
-<ul>
-  <font size="4">
-  <li><b>Known Foreground</b>: the white areas in the trimap. Pixels in this areas belong to the foreground.</li>
-  <li><b>Known Background</b>: the black areas in the trimap. Pixels in this areas belong to the background. </li>
-  <li><b>Unknown</b>: the gray areas in the trimap. It is usually the area where very fine details exist, such as hairs and furs. This is also the <font color="red"><b>ONLY</b></font> area which a matting algorithm needs to solve for. </li>
-  </font>
-</ul>
-    <font size="4"><p>After a matting algorithm extracts the foreground in the <b>Unknown</b> region, we can composite the foreground with any arbitrary background image as below. </p></font>
+    <font size="4"><p>Your task will be to judge which of two methods did a better job of extracting an object.</p></font>
 
-<div id="images">
-    <a >
-        <div id="container"><img src="intro_pics/ours_3.png"  alt="Image" style="height:500px;" border="2" ></div>
-        <div class="caption"><b><font size="4">Foreground composited with a white background</font></b></div>
-    </a>
-</div>
-</div>
 
 <div style="display: inline-block">
-    <font color="black" size="6">How to compare two matting results?</font>
+    <font color="black" size="6">How to compare two results?</font>
 </div>
 
 <div id="images">
     <a >
         <div id="container"><img src="intro_pics/ours_3.png" alt="Image" style="height:500px;" border="2"></div>
-        <div class="caption"><b><font size="4">Results of method 1</font></b></div>
+        <div class="caption"><b><font size="4">Result of method 1</font></b></div>
     </a>
 
     <a >
     <div id="container"><img src="intro_pics/knn_3.png" alt="Image" style="height:500px;" border="2"></div>
-        <div class="caption"><b><font size="4">Results of method 2</font></b></div>
+        <div class="caption"><b><font size="4">Result of method 2</font></b></div>
     </a>
 </div>
 
 <div>
-    <font size="4"><p>Given a pair of composition results produced by two different matting methods, user can follow these instructions to judge which method is better: </p></font>
 
-    <font size="4"><p><b>1.</b> User should  <font color="red"><b>ONLY</b></font> compare the results in the <b>Unknown</b> regions, since results in the <b>Known Foreground</b> and <b>Known Background</b> regions are exactly the same. </p></font>
+    <font size="4"><p><b>1.</b> Pay attention to the <font color="red"><b>edges of the object</b></font>, areas like <font color="red"><b>hair</b></font> and <font color="red"><b>fur</b></font>, or any areas that are <font color="red"><b>semi-transparent</b></font>. </p></font>
 
-    <font size="4"><p><b>2.</b> A bad matting method will produce <font color="red"><b>smear and chunky artifacts</b></font>, such as the result of method 2. This is mainly caused by a wrong extraction of background as foreground.   </p></font>
+    <font size="4"><p><b>2.</b> A bad result will have <font color="red"><b>smearing</b></font> or <font color="red"><b>chunky</b></font> artifacts, will be <font color="red"><b>missing pieces</b></font>, will <font color="red"><b>include pieces of the background</b></font>, or will <font color="red"><b>not look realistic</b></font>.  Do not worry if there is some discoloration.   </p></font>
 
-    <font size="4"><p><b>3.</b> Pay attention to small and fine details (e.g., hairs and furs) in the <b>Unknown</b> regions.</p></font>
+    <font size="4"><p><b>3.</b> If you move your mouse over the image, you will see a close-up comparison of the images that will make it easier to judge the differences.</p></font>
 
-    <font size="4"><p><b>4.</b> Sometimes a different background image will show or hide details and mistakes. For example, if the background image is black, the smear in the above right image will disappear. So user should compare results on multiple background images.</p></font>
+    <font size="4"><p><b>4.</b> We show the same result on a white background and a black background to aid in seeing the differences.</p></font>
 
-    <font size="4"><p>So, based on the above instructions, method 1 is better than method 2. Do you agree? Please contact <b>xn8812@gmail.com</b> for further questions.</p></font>
+    <font size="4"><p>In the above images, method 1 is better than method 2.  Do you agree? Please contact <b>xn8812@gmail.com</b> for further questions.</p></font>
 
     <center>
 <!---	<div> <a class="pure-button intro" href="index.html">Return to the task!</a> </div> --->

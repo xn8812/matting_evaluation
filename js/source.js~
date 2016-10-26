@@ -1,3 +1,17 @@
+var singleImages = function(path, methods) {
+    var d1 = $.Deferred();
+    var im1 = createimg(path, methods[0]);
+    im1.load(d1.resolve);
+    var config = {
+        wrapperClassName: "mglass_wrapper mglass_wrapper_square",
+        viewerClassName: "mglass_viewer mglass_viewer_square"
+    };
+    $.when(d1).done(function(d1) {
+        MGlass(im1.attr('id'), im1.attr('src'), config);
+    });
+    return [im1];
+}
+
 var pairImages = function(path, methods) {
     var d1 = $.Deferred();
     var d2 = $.Deferred();
@@ -31,8 +45,11 @@ var createimg = (function() {
 
 var createForm = function(url, attrs) {
     var form = $('<form/>', {
-        action: url
+        action: url,
+	style: 'display: none'
     });
+    $('body').append(form);
+    form.append($('<input type="submit"/>'));
     for (var attr in attrs) {
         form.append($('<input/>', {
             type: 'text',
@@ -91,7 +108,7 @@ var submit = function(e) {
 $(document).ready(function() {
     var path = getParam('path');
     var methods = getParam('methods');
-    $('#image').append(pairImages(path, ['im', 'trimap']));
+    $('#image').append(singleImages(path, ['im']));
     for (var i = 0; i < 4; i++) {
 	if (i==0 || i==3) {
         var methods_n = [methods[0]+'_'+i, methods[1]+'_'+i];
