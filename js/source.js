@@ -1,6 +1,6 @@
 var singleImages = function(path, methods) {
     var d1 = $.Deferred();
-    var im1 = createimg(path, methods[0]);
+    var im1 = createsingleimg(path, methods[0]);
     im1.load(d1.resolve);
     var config = {
         wrapperClassName: "mglass_wrapper mglass_wrapper_square",
@@ -28,6 +28,20 @@ var pairImages = function(path, methods) {
     });
     return [im1, im2];
 }
+
+// loc i
+// pos {0, 1}
+var createsingleimg = (function() {
+    var counter = 0;
+
+    return function(path, img) {
+        counter++;
+        return $('<img></img>')
+            .addClass('pure-u-1-1 img')
+            .attr('id', 'img' + counter)
+            .attr('src', path + img + '.png');
+    };
+}());
 
 // loc i
 // pos {0, 1}
